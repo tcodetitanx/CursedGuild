@@ -1,0 +1,213 @@
+{
+  "contracts": [
+    {
+      "id": "contract_thornwood_crypt", "title": "Clear the Thornwood Crypt",
+      "description": "The dead stir in the overgrown crypt. Root them out and claim what lies within.",
+      "biome": "Thornwood", "difficulty": "Hard", "lengthDays": 3, "requiredSupplies": 8,
+      "riskTags": ["undead", "curse", "ambush"], "enemyTags": ["skeleton", "wraith", "grave_beast"],
+      "statChallenges": { "might": 8, "wits": 0, "magic": 6, "guile": 0, "spirit": 7 },
+      "rewards": { "gold": 1850, "reputation": 250, "supplies": 0, "arcaneDust": 120 },
+      "relicChance": 0.35,
+      "specialModifierId": "hidden_cursed_relic", "specialModifierName": "Hidden Cursed Relic",
+      "specialModifierDesc": "A powerful relic is hidden here, but it comes at a price."
+    },
+    {
+      "id": "contract_thornwood_wolves", "title": "Cull the Howling Pack",
+      "description": "Something with too many teeth has been dragging travellers off the Thornwood road.",
+      "biome": "Thornwood", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 3,
+      "riskTags": ["beast", "ambush"], "enemyTags": ["grave_beast"],
+      "statChallenges": { "might": 4, "wits": 3, "magic": 0, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 350, "reputation": 60, "supplies": 0, "arcaneDust": 0 },
+      "relicChance": 0.05,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_thornwood_roots", "title": "Strangling Roots",
+      "description": "The miller's field ate the miller. The village would like the field disciplined.",
+      "biome": "Thornwood", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 5,
+      "riskTags": ["trap", "poison"], "enemyTags": ["myconid", "slime"],
+      "statChallenges": { "might": 4, "wits": 5, "magic": 0, "guile": 0, "spirit": 3 },
+      "rewards": { "gold": 800, "reputation": 120, "supplies": 0, "arcaneDust": 40 },
+      "relicChance": 0.15,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_thornwood_chapel", "title": "The Sunken Chapel",
+      "description": "A chapel sank into the woods a century ago. Its congregation never stopped attending.",
+      "biome": "Thornwood", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 5,
+      "riskTags": ["undead", "shadow"], "enemyTags": ["skeleton", "wraith"],
+      "statChallenges": { "might": 0, "wits": 0, "magic": 4, "guile": 0, "spirit": 6 },
+      "rewards": { "gold": 900, "reputation": 140, "supplies": 0, "arcaneDust": 60 },
+      "relicChance": 0.20,
+      "specialModifierId": "consecrated_ground", "specialModifierName": "Consecrated Ground",
+      "specialModifierDesc": "Holy guild members find this place easier to endure."
+    },
+    {
+      "id": "contract_gravehollow_ledger", "title": "Pennies for the Dead",
+      "description": "Someone has been robbing coins from the eyes of the buried. The dead want them back, with interest.",
+      "biome": "Gravehollow", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 2,
+      "riskTags": ["undead", "trap"], "enemyTags": ["skeleton"],
+      "statChallenges": { "might": 0, "wits": 4, "magic": 0, "guile": 3, "spirit": 0 },
+      "rewards": { "gold": 400, "reputation": 50, "supplies": 0, "arcaneDust": 20 },
+      "relicChance": 0.10,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_gravehollow_wight", "title": "Crown of the Wight King",
+      "description": "The old king woke up cross about being dead. Convince him to lie back down.",
+      "biome": "Gravehollow", "difficulty": "Hard", "lengthDays": 4, "requiredSupplies": 10,
+      "riskTags": ["undead", "elite", "curse"], "enemyTags": ["wight", "skeleton", "wraith"],
+      "statChallenges": { "might": 9, "wits": 0, "magic": 6, "guile": 0, "spirit": 8 },
+      "rewards": { "gold": 2400, "reputation": 400, "supplies": 0, "arcaneDust": 200 },
+      "relicChance": 0.50,
+      "specialModifierId": "kingly_hoard", "specialModifierName": "Kingly Hoard",
+      "specialModifierDesc": "The king's burial hoard is rich — expect greater rewards, and greater guardians."
+    },
+    {
+      "id": "contract_gravehollow_mimic", "title": "The Biting Vault",
+      "description": "The bank's new strongroom has begun eating clerks. The bank considers this a staffing issue.",
+      "biome": "Gravehollow", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 4,
+      "riskTags": ["trap", "ambush"], "enemyTags": ["mimic"],
+      "statChallenges": { "might": 0, "wits": 6, "magic": 0, "guile": 5, "spirit": 0 },
+      "rewards": { "gold": 1100, "reputation": 100, "supplies": 0, "arcaneDust": 50 },
+      "relicChance": 0.30,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_gravehollow_spiders", "title": "Silk and Bone",
+      "description": "The catacombs are lovely this time of year, if you don't mind the webs, or what made them.",
+      "biome": "Gravehollow", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 3,
+      "riskTags": ["beast", "poison"], "enemyTags": ["crypt_spider"],
+      "statChallenges": { "might": 4, "wits": 4, "magic": 0, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 450, "reputation": 70, "supplies": 0, "arcaneDust": 0 },
+      "relicChance": 0.08,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_mirefen_slimes", "title": "Drain the Rot Cellar",
+      "description": "The tavern cellar flooded with something that isn't water and won't stop humming.",
+      "biome": "Mirefen", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 3,
+      "riskTags": ["poison"], "enemyTags": ["slime"],
+      "statChallenges": { "might": 3, "wits": 3, "magic": 0, "guile": 0, "spirit": 3 },
+      "rewards": { "gold": 380, "reputation": 50, "supplies": 0, "arcaneDust": 30 },
+      "relicChance": 0.07,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_mirefen_boar", "title": "The Corpse Boar",
+      "description": "It died three seasons ago and has only gotten angrier. Bring long spears.",
+      "biome": "Mirefen", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 5,
+      "riskTags": ["beast", "poison"], "enemyTags": ["boar", "slime"],
+      "statChallenges": { "might": 6, "wits": 0, "magic": 0, "guile": 4, "spirit": 0 },
+      "rewards": { "gold": 850, "reputation": 130, "supplies": 0, "arcaneDust": 0 },
+      "relicChance": 0.12,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_mirefen_saurian", "title": "Eyes in the Mire",
+      "description": "Lantern lights are luring folk off the causeway. The lights have teeth.",
+      "biome": "Mirefen", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 6,
+      "riskTags": ["poison", "ambush", "trap"], "enemyTags": ["saurian", "crypt_spider"],
+      "statChallenges": { "might": 4, "wits": 6, "magic": 0, "guile": 5, "spirit": 0 },
+      "rewards": { "gold": 950, "reputation": 150, "supplies": 0, "arcaneDust": 40 },
+      "relicChance": 0.18,
+      "specialModifierId": "venom_harvest", "specialModifierName": "Venom Harvest",
+      "specialModifierDesc": "Rare venoms can be gathered here — extra arcane dust on success."
+    },
+    {
+      "id": "contract_mirefen_poppet", "title": "The Drowned Poppet",
+      "description": "A child's doll floats upstream every night. Whatever is calling it home must be persuaded to stop.",
+      "biome": "Mirefen", "difficulty": "Hard", "lengthDays": 3, "requiredSupplies": 7,
+      "riskTags": ["curse", "shadow", "poison"], "enemyTags": ["wraith", "slime", "cultist"],
+      "statChallenges": { "might": 0, "wits": 5, "magic": 7, "guile": 0, "spirit": 6 },
+      "rewards": { "gold": 1700, "reputation": 260, "supplies": 0, "arcaneDust": 140 },
+      "relicChance": 0.40,
+      "specialModifierId": "cursed_waters", "specialModifierName": "Cursed Waters",
+      "specialModifierDesc": "The mire remembers. Curse risk is higher here."
+    },
+    {
+      "id": "contract_ashmoor_imps", "title": "Embers on the Moor",
+      "description": "Little fires keep getting up and walking to the hay barns. Stamp them out politely.",
+      "biome": "Ashmoor", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 3,
+      "riskTags": ["fire"], "enemyTags": ["fire_imp"],
+      "statChallenges": { "might": 4, "wits": 0, "magic": 3, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 420, "reputation": 60, "supplies": 0, "arcaneDust": 30 },
+      "relicChance": 0.06,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_ashmoor_forge", "title": "The Forge That Breathes",
+      "description": "The abandoned foundry has relit itself and is taking commissions. Nobody placed any.",
+      "biome": "Ashmoor", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 5,
+      "riskTags": ["fire", "trap"], "enemyTags": ["fire_imp", "flesh_golem"],
+      "statChallenges": { "might": 6, "wits": 5, "magic": 0, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 1000, "reputation": 150, "supplies": 0, "arcaneDust": 80 },
+      "relicChance": 0.22,
+      "specialModifierId": "living_metal", "specialModifierName": "Living Metal",
+      "specialModifierDesc": "Crafters read the forge like a book — crafter traits help here."
+    },
+    {
+      "id": "contract_ashmoor_cult", "title": "Ash Cult Rising",
+      "description": "Hooded figures gather nightly at the burnt chapel, chanting a name the wind refuses to carry.",
+      "biome": "Ashmoor", "difficulty": "Hard", "lengthDays": 3, "requiredSupplies": 8,
+      "riskTags": ["fire", "shadow", "elite"], "enemyTags": ["cultist", "fire_imp", "wraith"],
+      "statChallenges": { "might": 6, "wits": 0, "magic": 8, "guile": 6, "spirit": 0 },
+      "rewards": { "gold": 2000, "reputation": 320, "supplies": 0, "arcaneDust": 160 },
+      "relicChance": 0.38,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_ashmoor_beholder", "title": "The Watcher Below",
+      "description": "Miners broke into a chamber with one enormous eye in it. The eye seemed pleased.",
+      "biome": "Ashmoor", "difficulty": "Hard", "lengthDays": 4, "requiredSupplies": 9,
+      "riskTags": ["shadow", "elite", "curse"], "enemyTags": ["beholder", "cultist"],
+      "statChallenges": { "might": 0, "wits": 8, "magic": 9, "guile": 0, "spirit": 6 },
+      "rewards": { "gold": 2600, "reputation": 420, "supplies": 0, "arcaneDust": 220 },
+      "relicChance": 0.55,
+      "specialModifierId": "eye_of_ruin", "specialModifierName": "Eye of Ruin",
+      "specialModifierDesc": "Its gaze unmakes courage. Only the strong of spirit should descend."
+    },
+    {
+      "id": "contract_duskspire_stairs", "title": "One Hundred Black Steps",
+      "description": "Sweep the tower's lower stair of squatters. Mind the fourth step. And the ninth. And the rest.",
+      "biome": "Duskspire", "difficulty": "Easy", "lengthDays": 1, "requiredSupplies": 2,
+      "riskTags": ["trap", "shadow"], "enemyTags": ["skeleton"],
+      "statChallenges": { "might": 0, "wits": 4, "magic": 0, "guile": 4, "spirit": 0 },
+      "rewards": { "gold": 400, "reputation": 60, "supplies": 0, "arcaneDust": 20 },
+      "relicChance": 0.10,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_duskspire_library", "title": "The Whispering Stacks",
+      "description": "Retrieve the guild's overdue books from a library where the books do the borrowing.",
+      "biome": "Duskspire", "difficulty": "Medium", "lengthDays": 2, "requiredSupplies": 5,
+      "riskTags": ["curse", "shadow"], "enemyTags": ["wraith", "cultist"],
+      "statChallenges": { "might": 0, "wits": 6, "magic": 5, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 900, "reputation": 160, "supplies": 0, "arcaneDust": 90 },
+      "relicChance": 0.25,
+      "specialModifierId": "forbidden_pages", "specialModifierName": "Forbidden Pages",
+      "specialModifierDesc": "Scholars may copy what they dare — extra arcane dust for scholarly parties."
+    },
+    {
+      "id": "contract_duskspire_golem", "title": "Warden of the Spire",
+      "description": "The tower's doorman was built from six previous doormen. It no longer honours appointments.",
+      "biome": "Duskspire", "difficulty": "Medium", "lengthDays": 3, "requiredSupplies": 6,
+      "riskTags": ["elite", "trap"], "enemyTags": ["flesh_golem", "skeleton"],
+      "statChallenges": { "might": 7, "wits": 5, "magic": 0, "guile": 0, "spirit": 0 },
+      "rewards": { "gold": 1300, "reputation": 200, "supplies": 0, "arcaneDust": 80 },
+      "relicChance": 0.28,
+      "specialModifierId": "", "specialModifierName": "", "specialModifierDesc": ""
+    },
+    {
+      "id": "contract_duskspire_summit", "title": "The Hollow Bell Tolls",
+      "description": "The bell at the spire's summit rings for funerals that have not happened yet. Last night it rang twelve times.",
+      "biome": "Duskspire", "difficulty": "Hard", "lengthDays": 4, "requiredSupplies": 10,
+      "riskTags": ["curse", "elite", "shadow", "undead"], "enemyTags": ["wight", "wraith", "beholder"],
+      "statChallenges": { "might": 7, "wits": 0, "magic": 9, "guile": 0, "spirit": 9 },
+      "rewards": { "gold": 3000, "reputation": 500, "supplies": 0, "arcaneDust": 260 },
+      "relicChance": 0.60,
+      "specialModifierId": "the_hollow_bell", "specialModifierName": "The Hollow Bell",
+      "specialModifierDesc": "Twelve tolls, twelve dooms. The greatest prize the guild has ever been offered."
+    }
+  ]
+}

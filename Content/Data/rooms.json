@@ -1,0 +1,116 @@
+{
+  "rooms": [
+    {
+      "id": "room_guild_hall", "name": "Guild Hall",
+      "description": "The heart of the guild. Each level increases roster capacity by 2.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_guild_hall", "isUnlocked": true,
+      "effectType": "roster_capacity", "effectPerLevel": 2.0,
+      "effectDesc": "+2 roster capacity per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 800,  "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 1600, "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 3200, "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 6400, "reputation": 0, "supplies": 0, "arcaneDust": 0 }
+      ]
+    },
+    {
+      "id": "room_alchemy_lab", "name": "Alchemy Lab",
+      "description": "Bubbling vats and dubious fumes. Improves potion brewing results by 5% per level.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_alchemy_lab", "isUnlocked": true,
+      "effectType": "potion_bonus", "effectPerLevel": 0.05,
+      "effectDesc": "+5% brewing results per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 500,  "reputation": 0, "supplies": 0, "arcaneDust": 50 },
+        { "gold": 1000, "reputation": 0, "supplies": 0, "arcaneDust": 100 },
+        { "gold": 2000, "reputation": 0, "supplies": 0, "arcaneDust": 200 },
+        { "gold": 4000, "reputation": 0, "supplies": 0, "arcaneDust": 400 }
+      ]
+    },
+    {
+      "id": "room_workshop", "name": "Workshop",
+      "description": "Anvils, tongs, and a demon's patience. Reduces crafting costs by 8% per level.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_workshop", "isUnlocked": true,
+      "effectType": "craft_discount", "effectPerLevel": 0.08,
+      "effectDesc": "-8% crafting cost per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 600,  "reputation": 0, "supplies": 0, "arcaneDust": 40 },
+        { "gold": 1200, "reputation": 0, "supplies": 0, "arcaneDust": 80 },
+        { "gold": 2400, "reputation": 0, "supplies": 0, "arcaneDust": 160 },
+        { "gold": 4800, "reputation": 0, "supplies": 0, "arcaneDust": 320 }
+      ]
+    },
+    {
+      "id": "room_library", "name": "Library",
+      "description": "Ledgers of the dead and maps of the worse. Improves contract preview accuracy.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_library", "isUnlocked": true,
+      "effectType": "preview_accuracy", "effectPerLevel": 1.0,
+      "effectDesc": "Sharper success estimates per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 500,  "reputation": 0, "supplies": 0, "arcaneDust": 30 },
+        { "gold": 1000, "reputation": 0, "supplies": 0, "arcaneDust": 60 },
+        { "gold": 2000, "reputation": 0, "supplies": 0, "arcaneDust": 120 },
+        { "gold": 4000, "reputation": 0, "supplies": 0, "arcaneDust": 240 }
+      ]
+    },
+    {
+      "id": "room_barracks", "name": "Barracks",
+      "description": "Hard cots and harder snoring. Resting recovers 10% more HP per level.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_barracks", "isUnlocked": true,
+      "effectType": "rest_heal_bonus", "effectPerLevel": 0.10,
+      "effectDesc": "+10% rest healing per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 550,  "reputation": 0, "supplies": 5,  "arcaneDust": 0 },
+        { "gold": 1100, "reputation": 0, "supplies": 10, "arcaneDust": 0 },
+        { "gold": 2200, "reputation": 0, "supplies": 20, "arcaneDust": 0 },
+        { "gold": 4400, "reputation": 0, "supplies": 40, "arcaneDust": 0 }
+      ]
+    },
+    {
+      "id": "room_relic_vault", "name": "Relic Vault",
+      "description": "Iron doors, iron chains, iron prayers. Increases equipped relic slots (up to 3).",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_relic_vault", "isUnlocked": true,
+      "effectType": "relic_slots", "effectPerLevel": 1.0,
+      "effectDesc": "More relic slots and storage per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0, "arcaneDust": 0 },
+        { "gold": 700,  "reputation": 0, "supplies": 0, "arcaneDust": 70 },
+        { "gold": 1400, "reputation": 0, "supplies": 0, "arcaneDust": 140 },
+        { "gold": 2800, "reputation": 0, "supplies": 0, "arcaneDust": 280 },
+        { "gold": 5600, "reputation": 0, "supplies": 0, "arcaneDust": 560 }
+      ]
+    },
+    {
+      "id": "room_kitchen", "name": "Kitchen",
+      "description": "The stew is grey but the bread is honest. Improves mood recovery when resting.",
+      "level": 1, "maxLevel": 5, "iconSpriteId": "room_kitchen", "isUnlocked": true,
+      "effectType": "mood_recovery", "effectPerLevel": 1.0,
+      "effectDesc": "Better mood recovery per level",
+      "upgradeCosts": [
+        { "gold": 0,    "reputation": 0, "supplies": 0,  "arcaneDust": 0 },
+        { "gold": 450,  "reputation": 0, "supplies": 8,  "arcaneDust": 0 },
+        { "gold": 900,  "reputation": 0, "supplies": 16, "arcaneDust": 0 },
+        { "gold": 1800, "reputation": 0, "supplies": 32, "arcaneDust": 0 },
+        { "gold": 3600, "reputation": 0, "supplies": 64, "arcaneDust": 0 }
+      ]
+    },
+    {
+      "id": "room_ritual_chamber", "name": "Ritual Chamber",
+      "description": "Chalk, candles, and consequences. +1 party Magic per level, but +5% curse risk.",
+      "level": 0, "maxLevel": 5, "iconSpriteId": "room_ritual_chamber", "isUnlocked": false,
+      "effectType": "magic_power", "effectPerLevel": 1.0,
+      "effectDesc": "+1 party Magic per level, +5% injury risk on curse contracts",
+      "upgradeCosts": [
+        { "gold": 1000, "reputation": 200, "supplies": 0, "arcaneDust": 100 },
+        { "gold": 1500, "reputation": 0,   "supplies": 0, "arcaneDust": 150 },
+        { "gold": 3000, "reputation": 0,   "supplies": 0, "arcaneDust": 300 },
+        { "gold": 6000, "reputation": 0,   "supplies": 0, "arcaneDust": 600 },
+        { "gold": 9000, "reputation": 0,   "supplies": 0, "arcaneDust": 900 }
+      ]
+    }
+  ]
+}

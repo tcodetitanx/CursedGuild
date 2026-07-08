@@ -1,0 +1,19 @@
+{
+  "enemies": [
+    { "id": "enemy_skeleton",     "tag": "skeleton",     "name": "Restless Skeleton", "spriteId": "enemy_skeleton" },
+    { "id": "enemy_wraith",       "tag": "wraith",       "name": "Wailing Wraith",    "spriteId": "enemy_wraith" },
+    { "id": "enemy_zombie",       "tag": "zombie",       "name": "Shambling Zombie",  "spriteId": "enemy_zombie" },
+    { "id": "enemy_grave_beast",  "tag": "grave_beast",  "name": "Grave Beast",       "spriteId": "enemy_grave_beast" },
+    { "id": "enemy_flesh_golem",  "tag": "flesh_golem",  "name": "Flesh Golem",       "spriteId": "enemy_flesh_golem" },
+    { "id": "enemy_beholder",     "tag": "beholder",     "name": "Watching Horror",   "spriteId": "enemy_beholder" },
+    { "id": "enemy_myconid",      "tag": "myconid",      "name": "Myconid Shrieker",  "spriteId": "enemy_myconid" },
+    { "id": "enemy_crypt_spider", "tag": "crypt_spider", "name": "Crypt Spider",      "spriteId": "enemy_crypt_spider" },
+    { "id": "enemy_mimic",        "tag": "mimic",        "name": "Mimic",             "spriteId": "enemy_mimic" },
+    { "id": "enemy_wight",        "tag": "wight",        "name": "Wight King",        "spriteId": "enemy_wight" },
+    { "id": "enemy_cultist",      "tag": "cultist",      "name": "Void Cultist",      "spriteId": "enemy_cultist" },
+    { "id": "enemy_slime",        "tag": "slime",        "name": "Grave Ooze",        "spriteId": "enemy_slime" },
+    { "id": "enemy_fire_imp",     "tag": "fire_imp",     "name": "Cinder Imp",        "spriteId": "enemy_fire_imp" },
+    { "id": "enemy_boar",         "tag": "boar",         "name": "Corpse Boar",       "spriteId": "enemy_boar" },
+    { "id": "enemy_saurian",      "tag": "saurian",      "name": "Mire Saurian",      "spriteId": "enemy_saurian" }
+  ]
+}

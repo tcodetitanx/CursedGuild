@@ -1,0 +1,164 @@
+{
+  "relics": [
+    {
+      "id": "relic_whispering_skull", "name": "Whispering Skull", "rarity": "Cursed",
+      "iconSpriteId": "relic_whispering_skull",
+      "description": "+2 Wits and +1 Magic, but expedition injury chance increases by 10%.",
+      "tags": ["cursed", "knowledge"],
+      "statModifiers": { "might": 0, "wits": 2, "magic": 1, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "injury_chance_modifier", "value": 0.10 } ]
+    },
+    {
+      "id": "relic_blood_chalice", "name": "Blood Chalice", "rarity": "Rare",
+      "iconSpriteId": "relic_blood_chalice",
+      "description": "+2 Spirit. The party recovers 15% more HP after expeditions.",
+      "tags": ["blood", "healing"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 0, "spirit": 2 },
+      "effects": [ { "type": "heal_bonus", "value": 0.15 } ]
+    },
+    {
+      "id": "relic_haunted_lantern", "name": "Haunted Lantern", "rarity": "Uncommon",
+      "iconSpriteId": "relic_haunted_lantern",
+      "description": "+1 Wits, +1 Spirit. Its pale light steadies the party (+3% success).",
+      "tags": ["light", "spirit"],
+      "statModifiers": { "might": 0, "wits": 1, "magic": 0, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "success_modifier", "value": 3 } ]
+    },
+    {
+      "id": "relic_cursed_crown", "name": "Cursed Crown", "rarity": "Legendary",
+      "iconSpriteId": "relic_cursed_crown",
+      "description": "+2 Might, +2 Magic, +1 Spirit — but injury chance increases by 15%.",
+      "tags": ["cursed", "royalty"],
+      "statModifiers": { "might": 2, "wits": 0, "magic": 2, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "injury_chance_modifier", "value": 0.15 } ]
+    },
+    {
+      "id": "relic_bone_scepter", "name": "Bone Scepter", "rarity": "Rare",
+      "iconSpriteId": "relic_bone_scepter",
+      "description": "+2 Magic. The dead heed its rattle (+5% success against undead).",
+      "tags": ["undead", "command"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 2, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "undead_success_modifier", "value": 5 } ]
+    },
+    {
+      "id": "relic_moon_shard", "name": "Moon Shard", "rarity": "Rare",
+      "iconSpriteId": "relic_moon_shard",
+      "description": "+1 Magic, +1 Guile. Hums in step with the moon (+4% success at Full Moon).",
+      "tags": ["moon", "arcane"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 1, "guile": 1, "spirit": 0 },
+      "effects": [ { "type": "full_moon_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_demon_coin", "name": "Demon Coin", "rarity": "Cursed",
+      "iconSpriteId": "relic_demon_coin",
+      "description": "Contract gold rewards +20%, but reputation gains -10%.",
+      "tags": ["demon", "greed"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "gold_bonus", "value": 0.20 }, { "type": "rep_penalty", "value": 0.10 } ]
+    },
+    {
+      "id": "relic_thorn_ring", "name": "Thorn Ring", "rarity": "Common",
+      "iconSpriteId": "relic_thorn_ring",
+      "description": "+1 Might. It bites its bearer awake in ambushes.",
+      "tags": ["thorn", "vigilance"],
+      "statModifiers": { "might": 1, "wits": 0, "magic": 0, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "ambush_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_witch_mirror", "name": "Witch Mirror", "rarity": "Uncommon",
+      "iconSpriteId": "relic_witch_mirror",
+      "description": "+2 Guile. Shows what watchers wish were hidden.",
+      "tags": ["witch", "scrying"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 2, "spirit": 0 },
+      "effects": []
+    },
+    {
+      "id": "relic_funeral_bell", "name": "Funeral Bell", "rarity": "Uncommon",
+      "iconSpriteId": "relic_funeral_bell",
+      "description": "+1 Spirit. Rings once for every grave the party walks past (+4% vs undead).",
+      "tags": ["undead", "rites"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "undead_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_soul_jar", "name": "Soul Jar", "rarity": "Rare",
+      "iconSpriteId": "relic_soul_jar",
+      "description": "+1 Magic, +1 Spirit. Injury chance reduced by 5%.",
+      "tags": ["soul", "ward"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 1, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "injury_chance_modifier", "value": -0.05 } ]
+    },
+    {
+      "id": "relic_plague_mask", "name": "Plague Mask", "rarity": "Common",
+      "iconSpriteId": "relic_plague_mask",
+      "description": "+1 Wits. Filters the worst of the mire (+5% success vs poison).",
+      "tags": ["plague", "ward"],
+      "statModifiers": { "might": 0, "wits": 1, "magic": 0, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "poison_success_modifier", "value": 5 } ]
+    },
+    {
+      "id": "relic_void_orb", "name": "Void Orb", "rarity": "Legendary",
+      "iconSpriteId": "relic_void_orb",
+      "description": "+3 Magic. Something looks back (+10% injury chance on shadow contracts).",
+      "tags": ["void", "arcane"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 3, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "shadow_injury_modifier", "value": 0.10 } ]
+    },
+    {
+      "id": "relic_coffin_key", "name": "Coffin Key", "rarity": "Common",
+      "iconSpriteId": "relic_coffin_key",
+      "description": "+1 Guile. Opens locks that were nailed shut for a reason.",
+      "tags": ["key", "trespass"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 1, "spirit": 0 },
+      "effects": [ { "type": "trap_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_chain_rosary", "name": "Chain Rosary", "rarity": "Common",
+      "iconSpriteId": "relic_chain_rosary",
+      "description": "+1 Spirit. Each bead is a debt already paid.",
+      "tags": ["holy", "ward"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "curse_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_relic_eye", "name": "Relic Eye", "rarity": "Cursed",
+      "iconSpriteId": "relic_relic_eye",
+      "description": "+2 Wits, +1 Guile. It blinks when danger is near, and sometimes when it is not.",
+      "tags": ["cursed", "sight"],
+      "statModifiers": { "might": 0, "wits": 2, "magic": 0, "guile": 1, "spirit": 0 },
+      "effects": [ { "type": "injury_chance_modifier", "value": 0.05 } ]
+    },
+    {
+      "id": "relic_black_candle", "name": "Black Candle", "rarity": "Common",
+      "iconSpriteId": "relic_black_candle",
+      "description": "+1 Magic. Burns downward. Do not ask what it drips into.",
+      "tags": ["ritual", "shadow"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 1, "guile": 0, "spirit": 0 },
+      "effects": []
+    },
+    {
+      "id": "relic_ash_reliquary", "name": "Ash Reliquary", "rarity": "Uncommon",
+      "iconSpriteId": "relic_ash_reliquary",
+      "description": "+1 Spirit, +1 Might. The saint inside is still working (+4% success vs fire).",
+      "tags": ["holy", "ash"],
+      "statModifiers": { "might": 1, "wits": 0, "magic": 0, "guile": 0, "spirit": 1 },
+      "effects": [ { "type": "fire_success_modifier", "value": 4 } ]
+    },
+    {
+      "id": "relic_nightmare_feather", "name": "Nightmare Feather", "rarity": "Uncommon",
+      "iconSpriteId": "relic_nightmare_feather",
+      "description": "+2 Guile. Plucked from something that flies through sleep.",
+      "tags": ["dream", "shadow"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 2, "spirit": 0 },
+      "effects": [ { "type": "shadow_success_modifier", "value": 3 } ]
+    },
+    {
+      "id": "relic_rusted_lockbox", "name": "Rusted Lockbox", "rarity": "Cursed",
+      "iconSpriteId": "relic_rusted_lockbox",
+      "description": "Gold rewards +15%. It is always slightly heavier than it was yesterday.",
+      "tags": ["cursed", "greed"],
+      "statModifiers": { "might": 0, "wits": 0, "magic": 0, "guile": 0, "spirit": 0 },
+      "effects": [ { "type": "gold_bonus", "value": 0.15 }, { "type": "injury_chance_modifier", "value": 0.05 } ]
+    }
+  ]
+}

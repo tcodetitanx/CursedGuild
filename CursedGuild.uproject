@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.8",
+	"Category": "Game",
+	"Description": "Cursed Guild - a 2D dark-fantasy guild management game. Run a cursed guild: choose contracts, assign teams, equip relics, upgrade rooms, survive expeditions.",
+	"Modules": [
+		{
+			"Name": "CursedGuild",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}

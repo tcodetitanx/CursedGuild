@@ -1,0 +1,112 @@
+{
+  "members": [
+    {
+      "id": "hero_sir_aldric", "name": "Sir Aldric", "className": "Paladin",
+      "level": 3, "xp": 40, "hp": 38, "maxHp": 38, "mood": "High",
+      "portraitSpriteId": "portrait_sir_aldric", "bodySpriteId": "body_sir_aldric",
+      "traits": ["holy", "armored", "brave"], "skills": ["Shield Wall", "Smite"],
+      "stats": { "might": 4, "wits": 1, "magic": 1, "guile": 0, "spirit": 4 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": true, "hireCostGold": 0, "hireCostRep": 0
+    },
+    {
+      "id": "hero_morgana", "name": "Morgana", "className": "Witch",
+      "level": 3, "xp": 20, "hp": 24, "maxHp": 24, "mood": "Ecstatic",
+      "portraitSpriteId": "portrait_morgana", "bodySpriteId": "body_morgana",
+      "traits": ["cursed", "clever", "unstable"], "skills": ["Hex", "Veil of Ash"],
+      "stats": { "might": 0, "wits": 2, "magic": 5, "guile": 2, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": true, "hireCostGold": 0, "hireCostRep": 0
+    },
+    {
+      "id": "hero_krunk", "name": "Krunk", "className": "Goblin Clerk",
+      "level": 2, "xp": 10, "hp": 22, "maxHp": 22, "mood": "Content",
+      "portraitSpriteId": "portrait_krunk", "bodySpriteId": "body_krunk",
+      "traits": ["clever", "greedy"], "skills": ["Fine Print", "Pocket Sand"],
+      "stats": { "might": 1, "wits": 4, "magic": 0, "guile": 3, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": true, "hireCostGold": 0, "hireCostRep": 0
+    },
+    {
+      "id": "hero_pennycackle", "name": "Pennycackle", "className": "Skeleton Accountant",
+      "level": 2, "xp": 0, "hp": 20, "maxHp": 20, "mood": "Content",
+      "portraitSpriteId": "portrait_pennycackle", "bodySpriteId": "body_pennycackle",
+      "traits": ["undead", "scholar", "fragile"], "skills": ["Audit", "Bone Tally"],
+      "stats": { "might": 0, "wits": 5, "magic": 1, "guile": 2, "spirit": 0 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 450, "hireCostRep": 50
+    },
+    {
+      "id": "hero_vorgar", "name": "Vorgar", "className": "Demon Blacksmith",
+      "level": 3, "xp": 30, "hp": 35, "maxHp": 35, "mood": "High",
+      "portraitSpriteId": "portrait_vorgar", "bodySpriteId": "body_vorgar",
+      "traits": ["demon", "crafter", "brave"], "skills": ["Forge Brand", "Anvil Slam"],
+      "stats": { "might": 5, "wits": 1, "magic": 2, "guile": 0, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 800, "hireCostRep": 150
+    },
+    {
+      "id": "hero_gloop", "name": "Gloop", "className": "Ooze Familiar",
+      "level": 1, "xp": 0, "hp": 18, "maxHp": 18, "mood": "High",
+      "portraitSpriteId": "portrait_gloop", "bodySpriteId": "body_gloop",
+      "traits": ["unstable", "lucky"], "skills": ["Engulf", "Split"],
+      "stats": { "might": 1, "wits": 0, "magic": 2, "guile": 2, "spirit": 3 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": true, "hireCostGold": 0, "hireCostRep": 0
+    },
+    {
+      "id": "hero_elowen", "name": "Elowen", "className": "Ranger",
+      "level": 2, "xp": 0, "hp": 26, "maxHp": 26, "mood": "Content",
+      "portraitSpriteId": "portrait_elowen", "bodySpriteId": "body_elowen",
+      "traits": ["stealthy", "clever"], "skills": ["Track", "Longshot"],
+      "stats": { "might": 2, "wits": 4, "magic": 0, "guile": 3, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 500, "hireCostRep": 80
+    },
+    {
+      "id": "hero_brother_moth", "name": "Brother Moth", "className": "Grave Monk",
+      "level": 2, "xp": 0, "hp": 28, "maxHp": 28, "mood": "Content",
+      "portraitSpriteId": "portrait_brother_moth", "bodySpriteId": "body_brother_moth",
+      "traits": ["holy", "brave", "scholar"], "skills": ["Last Rites", "Iron Palm"],
+      "stats": { "might": 3, "wits": 1, "magic": 1, "guile": 0, "spirit": 5 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 600, "hireCostRep": 120
+    },
+    {
+      "id": "hero_sable_locke", "name": "Sable Locke", "className": "Rogue",
+      "level": 3, "xp": 0, "hp": 25, "maxHp": 25, "mood": "Content",
+      "portraitSpriteId": "portrait_sable_locke", "bodySpriteId": "body_sable_locke",
+      "traits": ["stealthy", "greedy", "lucky"], "skills": ["Lockpick", "Backstab"],
+      "stats": { "might": 2, "wits": 2, "magic": 0, "guile": 5, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 750, "hireCostRep": 140
+    },
+    {
+      "id": "hero_wrenwick", "name": "Wrenwick", "className": "Alchemist",
+      "level": 2, "xp": 0, "hp": 22, "maxHp": 22, "mood": "Content",
+      "portraitSpriteId": "portrait_wrenwick", "bodySpriteId": "body_wrenwick",
+      "traits": ["crafter", "scholar", "clever"], "skills": ["Acid Flask", "Distill"],
+      "stats": { "might": 0, "wits": 4, "magic": 3, "guile": 1, "spirit": 1 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 550, "hireCostRep": 90
+    },
+    {
+      "id": "hero_brunna", "name": "Brunna", "className": "Shield Bearer",
+      "level": 2, "xp": 0, "hp": 34, "maxHp": 34, "mood": "Content",
+      "portraitSpriteId": "portrait_brunna", "bodySpriteId": "body_brunna",
+      "traits": ["armored", "brave"], "skills": ["Bulwark", "Shield Bash"],
+      "stats": { "might": 4, "wits": 1, "magic": 0, "guile": 0, "spirit": 3 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 500, "hireCostRep": 70
+    },
+    {
+      "id": "hero_tilda_root", "name": "Tilda Root", "className": "Herbalist",
+      "level": 2, "xp": 0, "hp": 24, "maxHp": 24, "mood": "High",
+      "portraitSpriteId": "portrait_tilda_root", "bodySpriteId": "body_tilda_root",
+      "traits": ["healer", "clever"], "skills": ["Poultice", "Nightshade"],
+      "stats": { "might": 1, "wits": 3, "magic": 1, "guile": 1, "spirit": 4 },
+      "status": "available", "daysUnavailable": 0,
+      "starting": false, "hireCostGold": 480, "hireCostRep": 60
+    }
+  ]
+}

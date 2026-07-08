@@ -1,0 +1,1455 @@
+# Cursed Guild MVP Build Guide for Claude Code
+
+## Project Summary
+
+Build a 2D Steam-style strategy/management MVP called **Cursed Guild**.
+
+The player runs a cursed fantasy guild. Each day, they manage a roster of strange guild members, choose contracts from a contract board, equip relics, upgrade rooms, and send teams on dangerous expeditions. Expeditions resolve through a lightweight simulation, not real-time combat.
+
+The game should use static 2D art, UI panels, icons, portraits, cards, and simple visual effects. Do not build a large world, action combat, multiplayer, procedural animation, or online systems for MVP.
+
+The core goal is to create a polished vertical slice that proves the loop is fun:
+
+**Review guild → choose contract → assign team/relics → resolve expedition → gain rewards → upgrade guild → repeat.**
+
+---
+
+# 1. Recommended Tech Stack
+
+Use **Unity 2D with C#**.
+
+Target platform: **PC / Steam-style desktop build**.
+
+Resolution target: **1920x1080**, scalable UI.
+
+Use:
+
+* Unity UI Toolkit or Canvas UI. Canvas is acceptable for speed.
+* ScriptableObjects or JSON for game data.
+* Static PNG sprites.
+* No 3D.
+* No multiplayer.
+* No live AI generation inside the game.
+
+The game should be data-driven so new characters, relics, rooms, and contracts can be added without rewriting code.
+
+---
+
+# 2. MVP Scope
+
+## Include in MVP
+
+### Core Screens
+
+1. Main Menu
+2. Guild Hub / Contract Board
+3. Roster Selection Panel
+4. Contract Detail Panel
+5. Relic Equip Panel
+6. Expedition Result Screen
+7. Room Upgrade Panel
+8. Simple Settings Menu
+
+### Core Systems
+
+1. Resource system
+2. Guild roster system
+3. Contract generation/selection system
+4. Party assignment system
+5. Relic system
+6. Room upgrade system
+7. Expedition auto-resolution system
+8. Week/day progression
+9. Save/load system
+10. Basic tutorial prompts
+
+### MVP Content
+
+Use placeholder data first, then wire art later.
+
+Minimum content:
+
+* 12 guild members
+* 12 enemy/threat types
+* 20 relics
+* 8 rooms
+* 20 contracts
+* 5 biomes
+* 4 resource types
+* 6 status/risk types
+* 3 contract lengths
+* 3 difficulty tiers
+
+---
+
+# 3. Core Gameplay Loop
+
+## Main Loop
+
+1. Player starts in the Guild Hub.
+2. Player sees:
+
+   * current resources
+   * current day/week
+   * roster
+   * contract board
+   * rooms
+   * equipped relics
+3. Player selects a contract.
+4. Player assigns 1–3 guild members.
+5. Player optionally equips relics.
+6. Player clicks **Embark**.
+7. Expedition resolves automatically.
+8. Game shows:
+
+   * success/failure
+   * injuries
+   * rewards
+   * new relics/materials
+   * reputation changes
+9. Time advances.
+10. Player spends rewards on:
+
+* recruiting
+* crafting
+* room upgrades
+* healing/resting
+
+11. Repeat.
+
+---
+
+# 4. Main UI Layout
+
+The Guild Hub should match this rough layout:
+
+## Top Bar
+
+Shows:
+
+* Gold
+* Reputation
+* Supplies
+* Arcane Dust
+* Week / Day
+* Moon phase or event modifier
+* Settings button
+
+## Left Panel — Roster
+
+Shows current guild members.
+
+Each member card displays:
+
+* portrait
+* name
+* class
+* level
+* HP
+* mood
+* small trait icons
+* availability
+
+Clicking a member opens details.
+
+## Center Panel — Contract Board
+
+Shows selected contract.
+
+Contract info:
+
+* title
+* illustration
+* description
+* difficulty
+* length
+* biome
+* rewards
+* risks
+* special modifiers
+
+Below it, show an **Expedition Preview**:
+
+* predicted enemies
+* estimated success chance
+* likely reward range
+* warning text
+
+## Right Panel — Guild / Rooms / Relics
+
+Tabs:
+
+* Guild
+* Rooms
+* Relics
+
+Rooms tab shows room upgrade list.
+
+Relics tab shows:
+
+* equipped relics
+* stored relics
+* relic slots
+
+## Bottom Action Bar
+
+Buttons:
+
+* Recruit
+* Craft
+* Brew Potions
+* Upgrade Room
+* Rest
+* Ledger
+* Embark
+
+Embark should only become active once a valid contract and team are selected.
+
+---
+
+# 5. Resources
+
+Use these four MVP resources:
+
+```json
+{
+  "gold": 12450,
+  "reputation": 1250,
+  "supplies": 86,
+  "arcaneDust": 730
+}
+```
+
+## Resource Uses
+
+### Gold
+
+Used for:
+
+* hiring recruits
+* room upgrades
+* healing
+* crafting
+
+### Reputation
+
+Used for:
+
+* unlocking harder contracts
+* better recruits
+* story progression
+
+### Supplies
+
+Used for:
+
+* expeditions
+* resting
+* emergency recovery
+
+### Arcane Dust
+
+Used for:
+
+* relic upgrades
+* magic rooms
+* potion brewing
+
+---
+
+# 6. Guild Members
+
+Guild members are the player’s core units.
+
+Each member should have:
+
+* ID
+* name
+* class
+* portrait
+* full-body sprite
+* level
+* XP
+* HP
+* max HP
+* mood
+* traits
+* skills
+* stats
+* availability status
+
+## Stats
+
+Use simple stats:
+
+```json
+{
+  "might": 3,
+  "wits": 2,
+  "magic": 1,
+  "guile": 2,
+  "spirit": 1
+}
+```
+
+## Stat Meanings
+
+### Might
+
+Physical combat, guarding, brute force.
+
+### Wits
+
+Investigation, traps, planning, puzzles.
+
+### Magic
+
+Curses, arcane hazards, rituals.
+
+### Guile
+
+Stealth, deception, negotiation.
+
+### Spirit
+
+Resistance, morale, healing, holy/corruption defense.
+
+## Example Guild Member JSON
+
+```json
+{
+  "id": "hero_sir_aldric",
+  "name": "Sir Aldric",
+  "className": "Paladin",
+  "level": 3,
+  "xp": 40,
+  "hp": 38,
+  "maxHp": 38,
+  "mood": "High",
+  "portraitSprite": "portrait_sir_aldric",
+  "bodySprite": "body_sir_aldric",
+  "traits": ["holy", "armored", "brave"],
+  "skills": ["shield_wall", "smite"],
+  "stats": {
+    "might": 4,
+    "wits": 1,
+    "magic": 1,
+    "guile": 0,
+    "spirit": 4
+  },
+  "status": "available"
+}
+```
+
+## MVP Guild Members
+
+Create these 12:
+
+1. Sir Aldric — Paladin
+2. Morgana — Witch
+3. Krunk — Goblin Clerk
+4. Pennycackle — Skeleton Accountant
+5. Vorgar — Demon Blacksmith
+6. Gloop — Ooze Familiar
+7. Elowen — Ranger
+8. Brother Moth — Grave Monk
+9. Sable Locke — Rogue
+10. Wrenwick — Alchemist
+11. Brunna — Shield Bearer
+12. Tilda Root — Herbalist
+
+---
+
+# 7. Contracts
+
+Contracts are the main missions.
+
+Each contract should have:
+
+* title
+* biome
+* difficulty
+* length
+* description
+* required supplies
+* risk tags
+* enemy tags
+* reward bundle
+* stat challenges
+* special modifier
+
+## Contract Difficulty
+
+Use:
+
+* Easy
+* Medium
+* Hard
+
+## Contract Length
+
+Use:
+
+* 1 day
+* 2 days
+* 3–4 days
+
+## Contract JSON Example
+
+```json
+{
+  "id": "contract_thornwood_crypt",
+  "title": "Clear the Thornwood Crypt",
+  "description": "The dead stir in the overgrown crypt. Root them out and claim what lies within.",
+  "biome": "Thornwood",
+  "difficulty": "Hard",
+  "lengthDays": 3,
+  "requiredSupplies": 8,
+  "riskTags": ["undead", "curse", "ambush"],
+  "enemyTags": ["skeleton", "wraith", "grave_beast"],
+  "statChallenges": {
+    "might": 8,
+    "magic": 6,
+    "spirit": 7
+  },
+  "rewards": {
+    "gold": 1850,
+    "reputation": 250,
+    "arcaneDust": 120,
+    "relicChance": 0.35
+  },
+  "specialModifier": {
+    "id": "hidden_cursed_relic",
+    "name": "Hidden Cursed Relic",
+    "description": "A powerful relic is hidden here, but it comes at a price."
+  }
+}
+```
+
+---
+
+# 8. Party Assignment
+
+For MVP, each expedition allows:
+
+* Minimum party size: 1
+* Maximum party size: 3
+* Equipped relic slots: 0–3
+
+The party’s total stats are calculated by summing member stats, then applying relic and room modifiers.
+
+Example:
+
+```text
+Party Might = sum(member.might) + relic bonuses + room bonuses
+Party Magic = sum(member.magic) + relic bonuses + room bonuses
+```
+
+A contract has stat challenges. The party succeeds based on comparison between party stats and challenge requirements.
+
+---
+
+# 9. Expedition Resolution
+
+Do not build real-time combat for MVP.
+
+Use an auto-resolution system.
+
+## Resolution Steps
+
+1. Calculate party total stats.
+2. Apply relic bonuses.
+3. Apply room bonuses.
+4. Apply contract difficulty modifier.
+5. Roll random variance.
+6. Determine outcome:
+
+   * Great Success
+   * Success
+   * Partial Success
+   * Failure
+   * Disaster
+
+## Suggested Formula
+
+```text
+partyPower = weighted sum of relevant stats
+contractPower = sum of contract stat challenges
+successChance = 50 + ((partyPower - contractPower) * 5)
+clamp successChance between 5 and 95
+```
+
+Example:
+
+```csharp
+successChance = Mathf.Clamp(50 + ((partyPower - contractPower) * 5), 5, 95);
+```
+
+## Outcome Thresholds
+
+Roll 1–100.
+
+```text
+roll <= successChance - 25 = Great Success
+roll <= successChance = Success
+roll <= successChance + 15 = Partial Success
+roll <= successChance + 35 = Failure
+otherwise = Disaster
+```
+
+## Outcome Effects
+
+### Great Success
+
+* full rewards
+* bonus XP
+* possible relic
+* no injury
+
+### Success
+
+* full rewards
+* normal XP
+* minor injury chance
+
+### Partial Success
+
+* 50–70% rewards
+* injury chance
+* possible curse
+
+### Failure
+
+* low rewards
+* injury
+* morale loss
+
+### Disaster
+
+* no rewards
+* heavy injury
+* possible member unavailable for several days
+* reputation loss
+
+---
+
+# 10. Relics
+
+Relics are passive modifiers.
+
+Each relic should have:
+
+* ID
+* name
+* rarity
+* icon
+* description
+* tags
+* stat modifiers
+* special effects
+
+## Rarities
+
+Use:
+
+* Common
+* Uncommon
+* Rare
+* Cursed
+* Legendary
+
+## Example Relic JSON
+
+```json
+{
+  "id": "relic_whispering_skull",
+  "name": "Whispering Skull",
+  "rarity": "Cursed",
+  "icon": "relic_whispering_skull",
+  "description": "+2 Wits and +1 Magic, but expedition injury chance increases by 10%.",
+  "tags": ["cursed", "knowledge"],
+  "statModifiers": {
+    "wits": 2,
+    "magic": 1
+  },
+  "effects": [
+    {
+      "type": "injury_chance_modifier",
+      "value": 0.10
+    }
+  ]
+}
+```
+
+## MVP Relics
+
+Create 20 relics:
+
+1. Whispering Skull
+2. Blood Chalice
+3. Haunted Lantern
+4. Cursed Crown
+5. Bone Scepter
+6. Moon Shard
+7. Demon Coin
+8. Thorn Ring
+9. Witch Mirror
+10. Funeral Bell
+11. Soul Jar
+12. Plague Mask
+13. Void Orb
+14. Coffin Key
+15. Chain Rosary
+16. Relic Eye
+17. Black Candle
+18. Ash Reliquary
+19. Nightmare Feather
+20. Rusted Lockbox
+
+---
+
+# 11. Rooms
+
+Rooms provide persistent guild upgrades.
+
+Each room has:
+
+* ID
+* name
+* level
+* max level
+* upgrade cost
+* passive effect
+* icon
+* locked/unlocked state
+
+## Example Room JSON
+
+```json
+{
+  "id": "room_alchemy_lab",
+  "name": "Alchemy Lab",
+  "level": 1,
+  "maxLevel": 5,
+  "icon": "room_alchemy_lab",
+  "upgradeCosts": [
+    { "gold": 500, "arcaneDust": 50 },
+    { "gold": 1000, "arcaneDust": 100 },
+    { "gold": 2000, "arcaneDust": 200 },
+    { "gold": 4000, "arcaneDust": 400 }
+  ],
+  "effects": [
+    {
+      "type": "potion_reward_bonus",
+      "valuePerLevel": 0.05
+    }
+  ],
+  "isUnlocked": true
+}
+```
+
+## MVP Rooms
+
+1. Guild Hall — increases roster capacity
+2. Alchemy Lab — improves potion/recovery results
+3. Workshop — improves crafting/relic upgrade results
+4. Library — improves contract preview accuracy
+5. Barracks — improves HP recovery
+6. Relic Vault — increases relic storage/equipped slots
+7. Kitchen — improves mood recovery
+8. Ritual Chamber — improves magic contracts but adds curse risk
+
+---
+
+# 12. Day and Week System
+
+Use a simple calendar.
+
+```json
+{
+  "week": 1,
+  "day": 1,
+  "moonPhase": "Waxing Moon"
+}
+```
+
+Each contract advances time by its lengthDays.
+
+Every 7 days:
+
+* week increases
+* new contract board refresh
+* weekly event may occur
+* upkeep costs may apply
+
+## Moon Phases
+
+Use moon phases as lightweight modifiers:
+
+1. New Moon — stealth/guile contracts easier
+2. Waxing Moon — reputation gain +5%
+3. Full Moon — magic contracts stronger, curse risk +10%
+4. Waning Moon — healing/resting more effective
+
+---
+
+# 13. Contract Board Generation
+
+For MVP, use a list of handcrafted contracts and randomly show 3 at a time.
+
+Every new day:
+
+* show 3 available contracts
+* replace completed contracts
+* keep unchosen contracts unless board is refreshed
+
+Contract selection should feel like a decision:
+
+Example:
+
+* Easy contract, low reward, low risk
+* Medium contract, decent reward
+* Hard contract, high reward, curse risk
+
+---
+
+# 14. Risk Tags
+
+Risk tags affect expedition outcomes.
+
+Use these MVP risk tags:
+
+1. undead
+2. curse
+3. poison
+4. ambush
+5. beast
+6. trap
+7. fire
+8. frost
+9. shadow
+10. elite
+
+Each risk tag can interact with traits.
+
+Example:
+
+* Paladin reduces undead risk.
+* Herbalist reduces poison risk.
+* Rogue reduces trap risk.
+* Witch reduces curse risk.
+* Ranger reduces beast risk.
+
+---
+
+# 15. Traits
+
+Traits define strengths and weaknesses.
+
+Use these MVP traits:
+
+* holy
+* cursed
+* armored
+* fragile
+* beast
+* undead
+* demon
+* clever
+* stealthy
+* healer
+* crafter
+* scholar
+* brave
+* greedy
+* unstable
+* lucky
+
+Trait interactions should be simple.
+
+Example:
+
+```text
+If contract has "undead" and party has "holy", +10% success chance.
+If contract has "curse" and party has "cursed", -5% injury chance but +5% corruption chance.
+If contract has "trap" and party has "stealthy", +10% success chance.
+```
+
+---
+
+# 16. Mood and Injury
+
+## Mood States
+
+Use:
+
+* Ecstatic
+* High
+* Content
+* Tired
+* Miserable
+
+Mood affects success chance.
+
+```text
+Ecstatic: +10%
+High: +5%
+Content: 0%
+Tired: -10%
+Miserable: -20%
+```
+
+## Injury System
+
+Members can be:
+
+* Healthy
+* Injured
+* Wounded
+* Unavailable
+
+Injury affects HP and availability.
+
+Resting should recover members.
+
+---
+
+# 17. Result Screen
+
+After expedition, show:
+
+* outcome title
+* short event description
+* rewards gained
+* XP gained
+* injuries/curses
+* relic found, if any
+* button: Continue to Guild
+
+Example result text:
+
+```text
+Great Success!
+
+Sir Aldric held the crypt gate while Morgana sealed the restless dead.
+The guild recovered a cursed reliquary and gained favor with Thornwood locals.
+```
+
+---
+
+# 18. Save / Load
+
+Use JSON save files.
+
+Save:
+
+* resources
+* roster
+* rooms
+* relic inventory
+* equipped relics
+* current day/week
+* completed contracts
+* available contracts
+* tutorial progress
+
+Autosave after:
+
+* completing a contract
+* upgrading a room
+* recruiting
+* resting
+
+---
+
+# 19. Asset Pipeline
+
+The generated art uses neon pink background #FF00FF.
+
+Claude Code should create or support an import utility that can:
+
+1. Load PNG sprite sheets.
+2. Replace pixels close to #FF00FF with transparent alpha.
+3. Slice sheets into sprites based on grid settings.
+4. Assign sprites by ID manually or through metadata.
+
+For MVP, manual assignment is acceptable. Automated slicing is a bonus.
+
+## Important
+
+Do not rely on AI-generated text inside images. All names, descriptions, numbers, buttons, and UI text should be rendered by the game engine.
+
+---
+
+# 20. Suggested Project Folder Structure
+
+```text
+Assets/
+  Art/
+    Backgrounds/
+    Sprites/
+      Characters/
+      Creatures/
+      Enemies/
+      Relics/
+      UI/
+    Icons/
+  Data/
+    Characters/
+    Contracts/
+    Relics/
+    Rooms/
+    Enemies/
+  Prefabs/
+    UI/
+    Cards/
+    Panels/
+  Scenes/
+    MainMenu.unity
+    GuildHub.unity
+  Scripts/
+    Core/
+    Data/
+    UI/
+    Systems/
+    Save/
+    Tools/
+```
+
+---
+
+# 21. Main Classes / Scripts
+
+## GameManager
+
+Controls global state.
+
+Responsibilities:
+
+* current resources
+* current day/week
+* save/load
+* scene transitions
+* current contract board
+
+## ResourceManager
+
+Handles adding/spending resources.
+
+Functions:
+
+* CanAfford(cost)
+* Spend(cost)
+* AddRewards(rewardBundle)
+
+## RosterManager
+
+Handles guild members.
+
+Functions:
+
+* GetAvailableMembers()
+* RecruitMember()
+* SetMemberStatus()
+* ApplyXP()
+* ApplyInjury()
+* RestMembers()
+
+## ContractManager
+
+Handles contracts.
+
+Functions:
+
+* GenerateContractBoard()
+* SelectContract()
+* CompleteContract()
+* RefreshContracts()
+
+## ExpeditionResolver
+
+Handles mission simulation.
+
+Functions:
+
+* CalculatePartyPower()
+* CalculateSuccessChance()
+* ResolveOutcome()
+* ApplyRewards()
+* ApplyInjuries()
+
+## RelicManager
+
+Handles relic inventory and equipped relics.
+
+Functions:
+
+* EquipRelic()
+* UnequipRelic()
+* ApplyRelicModifiers()
+* AddRelic()
+
+## RoomManager
+
+Handles room upgrades.
+
+Functions:
+
+* UpgradeRoom()
+* GetRoomBonus()
+* IsRoomUnlocked()
+
+## SaveManager
+
+Handles JSON save/load.
+
+Functions:
+
+* SaveGame()
+* LoadGame()
+* NewGame()
+
+## UIManager
+
+Coordinates UI panels.
+
+Functions:
+
+* ShowContractDetails()
+* ShowRosterDetails()
+* ShowRelicPanel()
+* ShowResultScreen()
+* UpdateTopBar()
+
+---
+
+# 22. Data Models
+
+## ResourceBundle
+
+```csharp
+[Serializable]
+public class ResourceBundle
+{
+    public int gold;
+    public int reputation;
+    public int supplies;
+    public int arcaneDust;
+}
+```
+
+## StatBlock
+
+```csharp
+[Serializable]
+public class StatBlock
+{
+    public int might;
+    public int wits;
+    public int magic;
+    public int guile;
+    public int spirit;
+}
+```
+
+## GuildMemberData
+
+```csharp
+[Serializable]
+public class GuildMemberData
+{
+    public string id;
+    public string name;
+    public string className;
+    public int level;
+    public int xp;
+    public int hp;
+    public int maxHp;
+    public string mood;
+    public List<string> traits;
+    public List<string> skills;
+    public StatBlock stats;
+    public string status;
+    public string portraitSpriteId;
+    public string bodySpriteId;
+}
+```
+
+## ContractData
+
+```csharp
+[Serializable]
+public class ContractData
+{
+    public string id;
+    public string title;
+    public string description;
+    public string biome;
+    public string difficulty;
+    public int lengthDays;
+    public int requiredSupplies;
+    public List<string> riskTags;
+    public List<string> enemyTags;
+    public StatBlock statChallenges;
+    public ResourceBundle rewards;
+    public float relicChance;
+    public string specialModifierId;
+}
+```
+
+## RelicData
+
+```csharp
+[Serializable]
+public class RelicData
+{
+    public string id;
+    public string name;
+    public string rarity;
+    public string iconSpriteId;
+    public string description;
+    public List<string> tags;
+    public StatBlock statModifiers;
+    public List<RelicEffect> effects;
+}
+```
+
+## RoomData
+
+```csharp
+[Serializable]
+public class RoomData
+{
+    public string id;
+    public string name;
+    public int level;
+    public int maxLevel;
+    public string iconSpriteId;
+    public bool isUnlocked;
+    public List<ResourceBundle> upgradeCosts;
+    public List<RoomEffect> effects;
+}
+```
+
+---
+
+# 23. MVP User Flow
+
+## New Game
+
+1. Player clicks New Game.
+2. Load GuildHub scene.
+3. Give starting resources:
+
+   * 1000 gold
+   * 0 reputation
+   * 30 supplies
+   * 50 arcane dust
+4. Give starting roster:
+
+   * Sir Aldric
+   * Morgana
+   * Krunk
+   * Gloop
+5. Generate 3 starting contracts.
+6. Show tutorial popups.
+
+## Tutorial Steps
+
+1. “This is your guild roster.”
+2. “Choose a contract from the board.”
+3. “Assign up to 3 guild members.”
+4. “Check the success chance.”
+5. “Equip relics if available.”
+6. “Click Embark.”
+7. “Use rewards to upgrade rooms and recruit.”
+
+---
+
+# 24. Contract Preview
+
+When a player selects a contract, display:
+
+* difficulty
+* length
+* required supplies
+* risk tags
+* estimated success chance
+* rewards
+* warning text
+
+Example warning text:
+
+```text
+Warning: This contract contains Undead and Curse risks.
+Holy or magical guild members are recommended.
+```
+
+Success chance should update live when party members or relics are changed.
+
+---
+
+# 25. Expedition Preview Formula
+
+Calculate:
+
+```text
+contractChallenge = relevant stat challenge total
+partyPower = party stat total + relic bonuses + room bonuses + trait bonuses
+baseChance = 50 + ((partyPower - contractChallenge) * 5)
+difficultyModifier:
+  Easy: +10
+  Medium: 0
+  Hard: -10
+moodModifier: average mood modifier
+riskModifier: trait-based bonuses/penalties
+finalChance = clamp(baseChance + difficultyModifier + moodModifier + riskModifier, 5, 95)
+```
+
+Show final chance as:
+
+* Safe: 75–95%
+* Risky: 50–74%
+* Dangerous: 25–49%
+* Suicidal: 5–24%
+
+---
+
+# 26. Visual Style Requirements
+
+Use a dark gothic fantasy UI.
+
+Colors:
+
+* black
+* dark brown
+* deep purple
+* gold trim
+* red danger accents
+* green poison accents
+* blue magic accents
+
+UI should feel like:
+
+* cursed parchment
+* black wood
+* gold filigree
+* purple crystals
+* skull ornaments
+* fantasy ledger pages
+
+Text should be readable. Never bake important text into art.
+
+---
+
+# 27. Audio MVP
+
+Use placeholder audio if needed.
+
+Add hooks for:
+
+* button click
+* panel open
+* embark
+* success
+* failure
+* relic found
+* room upgraded
+
+No complex music system required for MVP.
+
+---
+
+# 28. MVP Milestones
+
+## Milestone 1 — Static UI Shell
+
+Build:
+
+* Main Menu
+* Guild Hub layout
+* top resource bar
+* left roster list
+* center contract board
+* right room/relic panel
+* bottom action buttons
+
+Acceptance:
+
+* all panels visible
+* placeholder data displayed
+* buttons clickable
+
+## Milestone 2 — Data Loading
+
+Build:
+
+* JSON or ScriptableObject loading for members, contracts, relics, rooms
+* data visible in UI
+
+Acceptance:
+
+* changing data changes UI without code changes
+
+## Milestone 3 — Party Assignment
+
+Build:
+
+* select contract
+* select up to 3 members
+* show party stats
+* show success chance
+
+Acceptance:
+
+* success chance updates live
+
+## Milestone 4 — Expedition Resolution
+
+Build:
+
+* Embark button
+* resource cost
+* auto-resolution
+* result screen
+* reward application
+* day advancement
+
+Acceptance:
+
+* player can complete a full contract loop
+
+## Milestone 5 — Rooms and Relics
+
+Build:
+
+* equip relics
+* relic stat modifiers
+* room upgrades
+* room bonuses
+
+Acceptance:
+
+* relics and rooms affect success chance
+
+## Milestone 6 — Save/Load
+
+Build:
+
+* autosave
+* load game
+* new game reset
+
+Acceptance:
+
+* player can close and reopen with progress intact
+
+## Milestone 7 — Polish Pass
+
+Build:
+
+* transitions
+* hover tooltips
+* simple animations
+* sound effects
+* tutorial prompts
+
+Acceptance:
+
+* vertical slice feels presentable
+
+---
+
+# 29. Do Not Build Yet
+
+Do not build these for MVP:
+
+* real-time combat
+* tactical grid combat
+* multiplayer
+* AI-generated live content
+* online accounts
+* procedural story generator
+* complex animation rigs
+* voice acting
+* Steam achievements
+* mod support
+* mobile UI
+* dozens of biomes
+* hundreds of units
+* deep crafting tree
+
+These are expansion features, not MVP features.
+
+---
+
+# 30. Expansion Ideas After MVP
+
+After the core loop works, add:
+
+1. Boss contracts
+2. Weekly disasters
+3. Rival guilds
+4. Character relationships
+5. Permanent injuries
+6. Cursed relic tradeoffs
+7. Procedural event chains
+8. Contract story arcs
+9. More rooms
+10. More biomes
+11. More recruits
+12. Steam achievements
+13. Daily challenge mode
+14. Endless guild mode
+
+---
+
+# 31. Definition of Done for MVP
+
+The MVP is complete when:
+
+1. Player can start a new game.
+2. Player can view guild roster.
+3. Player can select from 3 contracts.
+4. Player can assign up to 3 members.
+5. Player can equip relics.
+6. Player can see estimated success chance.
+7. Player can embark on a contract.
+8. Contract resolves automatically.
+9. Rewards/injuries are applied.
+10. Time advances.
+11. Player can upgrade at least 4 rooms.
+12. Player can recruit new members.
+13. Player can save and load.
+14. Game can run for at least 4 in-game weeks.
+15. The core loop is fun without needing additional systems.
+
+---
+
+# 32. First Implementation Priority
+
+Start by building the playable loop using ugly placeholder rectangles and text.
+
+Do not spend time perfecting art import until the logic works.
+
+Implementation order:
+
+1. Data models
+2. Game state
+3. UI shell
+4. Contract selection
+5. Party assignment
+6. Success chance calculation
+7. Expedition resolution
+8. Rewards
+9. Room upgrades
+10. Relics
+11. Save/load
+12. Art integration
+13. Polish
+
+The most important MVP question is:
+
+“Is it fun to choose contracts, assign the right team, take risks, and improve the guild?”
+
+Everything else is secondary.
